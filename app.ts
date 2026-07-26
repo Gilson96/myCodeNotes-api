@@ -16,6 +16,7 @@ app.use(express.json());
 
 app.use("/", routes);
 
+console.log("MONGODB_URI exists:", !!process.env.MONGODB_URI);
 mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
 });
@@ -24,5 +25,4 @@ mongoose.connection.on("error", (err) => {
   console.error("MongoDB connection error:", err);
 });
 
-console.log("MONGODB_URI exists:", !!process.env.MONGODB_URI);
 export default app;
