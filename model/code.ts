@@ -1,19 +1,19 @@
-import mongoose, { Types } from "mongoose";
+import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 type TechnologyCategory = {
-  technology_category_id: Types.ObjectId;
+  technology_category_id: mongoose.Types.ObjectId;
   technology_category_name: string;
   technology_category_content: string;
 };
 
 type Technology = {
-  technology_id: Types.ObjectId;
+  technology_id: mongoose.Types.ObjectId;
   technology_name: string;
   technology_category: TechnologyCategory[];
 };
 
-export type CodeTypes = {
+type CodeTypes = {
   technologies: Technology[];
 };
 
