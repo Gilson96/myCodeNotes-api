@@ -6,8 +6,9 @@ import mongoose from "mongoose";
 import routes from "./routes/routes.ts";
 
 dotenv.config();
-
-connectDB();
+console.log("Connecting...");
+await connectDB();
+console.log("Connected");
 
 const app: Application = express();
 
@@ -16,7 +17,6 @@ app.use(express.json());
 
 app.use("/", routes);
 
-console.log("MONGODB_URI exists:", !!process.env.MONGODB_URI);
 mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
 });
