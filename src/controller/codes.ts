@@ -18,7 +18,7 @@ export const createTechnology = async (req: Request, res: Response) => {
 
 export const findTechnologies = async (req: Request, res: Response) => {
   try {
-    const find_technologies = await Codes.findOne().lean();
+    const find_technologies = await Codes.find().lean();
     res.status(200).json(find_technologies);
   } catch (error) {
     if (error instanceof Error) {
